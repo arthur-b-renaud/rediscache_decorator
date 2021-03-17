@@ -7,12 +7,12 @@ Yet, for deployment purposes (esp. AWS Lambda), it relies too heavily on pandas.
 
 ### Install
 ```bash
-pip install redis_cache_decorator
+pip install rediscache_decorator
 ```
 
 ### Initialize
 ```python
-from redis_cache_decorator import Cache
+from rediscache_decorator import Cache
 from redis import StrictRedis
 redis = StrictRedis(decode_responses=True)
 cache = Cache(redis)

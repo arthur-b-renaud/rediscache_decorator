@@ -2,7 +2,7 @@ from datetime import datetime
 from time import sleep
 from redis import StrictRedis
 from random import random
-from redis_cache_decorator import Cache
+from rediscache_decorator import Cache
 
 
 ### Comment this section if you don't have redis instance ###
@@ -25,7 +25,7 @@ for i in range(10):
 def another():
     return "hello"
 
-# Example: redis_cache_decorator dict
+# Example: rediscache_decorator dict
 
 @cache.dict(60)
 def return_a_dict(*args, **kwargs):
@@ -38,7 +38,7 @@ for i in range(5):
     print(return_a_dict())
 
 
-# Example: redis_cache_decorator float number
+# Example: rediscache_decorator float number
 
 
 @cache.float(60)

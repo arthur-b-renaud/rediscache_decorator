@@ -1,6 +1,6 @@
 from redis import StrictRedis
 from random import random, randint
-from redis_cache_decorator import Cache
+from rediscache_decorator import Cache
 import json
 
 redis = StrictRedis(decode_responses=True)

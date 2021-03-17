@@ -14,7 +14,7 @@ class Cache:
 
     def key_generator(self, func, *args, **kwargs):
         return ":".join(
-            ["redis_cache_decorator", str(":".join([func.__name__, *[str(i) for i in args], str(kwargs)]))])
+            ["rediscache_decorator", str(":".join([func.__name__, *[str(i) for i in args], str(kwargs)]))])
 
     def ttl(self, ttl=None, force_refresh=False):
         def enable(func):
@@ -35,11 +35,11 @@ class Cache:
 
     def delete_cache(self, func=None, *args, **kwargs):
         if func is None:
-            print("Delete all the redis_cache_decorator")
-            key = self.cache_container.scan(match="redis_cache_decorator:*")[1]
+            print("Delete all the rediscache_decorator")
+            key = self.cache_container.scan(match="rediscache_decorator:*")[1]
         elif not args and not kwargs:
             print("Remove every result related to this function")
-            key = self.cache_container.scan(match=":".join(["redis_cache_decorator", func.__name__, "*"]))[1]
+            key = self.cache_container.scan(match=":".join(["rediscache_decorator", func.__name__, "*"]))[1]
         else:
             key = [self.key_generator(func, *args, **kwargs)]
         if key:
